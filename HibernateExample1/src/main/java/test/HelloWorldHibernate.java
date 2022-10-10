@@ -5,10 +5,12 @@ import javax.persistence.*;
 import java.util.List;
 
 public class HelloWorldHibernate {
+    
     public static void main(String[] args) {
         
         String hql = "SELECT p FROM Persona p";
-        EntityManagerFactory fabrica = Persistence.createEntityManagerFactory("HibernateEjemplo1");
+        
+        EntityManagerFactory fabrica = Persistence.createEntityManagerFactory("HibernatePU");
         EntityManager entityManager = fabrica.createEntityManager();
         
         Query query = entityManager.createQuery(hql);
