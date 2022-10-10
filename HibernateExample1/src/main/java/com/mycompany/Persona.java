@@ -1,6 +1,6 @@
 package com.mycompany;
 
-//esta sera la clase identidad que representara la informacion que tenemos en nuestra base de datos
+//esta sera la clase entidad que representara la informacion que tenemos en nuestra base de datos
 
 import javax.persistence.*;
 import java.io.Serializable;
@@ -9,16 +9,26 @@ import java.io.Serializable;
 @Table(name="persona")
 public class Persona implements Serializable{
     
-    @Column(name="id_persona")
     @Id
+    @Column(name="id_persona")
+    @GeneratedValue(strategy=GenerationType.IDENTITY)
     private int idPersona;
     
     private String nombre;
-    private String  apellido;
-    private String  email;
-    private String  telefono;
+    private String apellido;
+    private String email;
+    private String telefono;
     
     public Persona(){}
+
+    public Persona(String nombre, String apellido, String email, String telefono) {
+        this.nombre = nombre;
+        this.apellido = apellido;
+        this.email = email;
+        this.telefono = telefono;
+    }
+    
+    
 
     public int getIdPersona() {
         return idPersona;
@@ -64,7 +74,6 @@ public class Persona implements Serializable{
     public String toString() {
         return "Persona{" + "idPersona=" + idPersona + ", nombre=" + nombre + ", apellido=" + apellido + ", email=" + email + ", telefono=" + telefono + '}';
     }
-    
     
     
     
