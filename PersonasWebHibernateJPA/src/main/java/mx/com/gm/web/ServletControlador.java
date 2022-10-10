@@ -4,6 +4,10 @@ import java.io.IOException;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.Persistence;
+import javax.persistence.Query;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.*;
@@ -14,8 +18,10 @@ import mx.com.gm.servicio.ServicioPersonas;
 public class ServletControlador extends HttpServlet{
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response){
-        ServicioPersonas servicioPersonas = new ServicioPersonas();
         
+        ServicioPersonas servicioPersonas = new ServicioPersonas();
+      
+       
         List<Persona> personas = servicioPersonas.listarPersonas();
         
         request.setAttribute("personas", personas);

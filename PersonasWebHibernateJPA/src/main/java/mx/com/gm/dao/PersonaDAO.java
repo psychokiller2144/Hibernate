@@ -29,6 +29,7 @@ public class PersonaDAO {
             em.getTransaction().begin();
             em.persist(persona);
             em.getTransaction().commit();
+            
         } catch (Exception ex) {
             ex.printStackTrace(System.out);
             em.getTransaction().rollback();

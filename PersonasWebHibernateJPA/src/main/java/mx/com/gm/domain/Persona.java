@@ -7,7 +7,7 @@ import javax.persistence.*;
 @Table(name = "persona")
 public class Persona implements Serializable {
     
-    private static final long serialVersionUID = 1L;
+    //private static final long serialVersionUID = 1L;
     
     @Column(name="id_persona")
     @Id
