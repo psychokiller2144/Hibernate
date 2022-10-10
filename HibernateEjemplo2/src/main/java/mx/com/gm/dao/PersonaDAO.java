@@ -24,6 +24,7 @@ public class PersonaDAO {
     }
 
     public void insertar(Persona persona) {
+        
         try {
             em.getTransaction().begin();
             em.persist(persona);
@@ -32,11 +33,11 @@ public class PersonaDAO {
             ex.printStackTrace(System.out);
             em.getTransaction().rollback();
         }
-        finally{
-            if(em != null){
-                em.close();
-            }
-        }
+//        finally{
+//            if(em != null){
+//                em.close();
+//            }
+//        }
     }
 
     public void modificar(Persona persona) {
@@ -62,7 +63,7 @@ public class PersonaDAO {
     public void eliminar(Persona persona) {
         try {
             em.getTransaction().begin();
-            em.remove(em.merge(persona));
+            em.remove( em.merge(persona) );
             em.getTransaction().commit();
         } catch (Exception ex) {
             ex.printStackTrace(System.out);
